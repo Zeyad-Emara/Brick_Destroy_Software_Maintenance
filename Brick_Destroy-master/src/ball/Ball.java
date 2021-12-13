@@ -140,7 +140,6 @@ abstract public class Ball
     {
         up.setLocation(center.getX(),center.getY()-(height / 2));
         down.setLocation(center.getX(),center.getY()+(height / 2));
-
         left.setLocation(center.getX()-(width / 2),center.getY());
         right.setLocation(center.getX()+(width / 2),center.getY());
     }

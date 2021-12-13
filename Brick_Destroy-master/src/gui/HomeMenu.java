@@ -15,7 +15,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package gameFrame;
+package gui;
 
 import javax.swing.*;
 
@@ -32,11 +32,11 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     private static final String GREETINGS = "Welcome to:";
     private static final String GAME_TITLE = "Brick Destroy";
-    private static final String CREDITS = "Version 0.1";
+    private static final String CREDITS = "Version 1";
     private static final String START_TEXT = "Start";
     private static final String MENU_TEXT = "Exit";
 
-    private static final Color BG_COLOR = Color.GREEN.darker();
+    private static final Color BG_COLOR = Color.WHITE.darker();
     private static final Color BORDER_COLOR = new Color(200,8,21); //Venetian Red
     private static final Color DASH_BORDER_COLOR = new  Color(255, 216, 0);//school bus yellow
     private static final Color TEXT_COLOR = new Color(16, 52, 166);//egyptian blue
@@ -87,9 +87,9 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         borderStoke = new BasicStroke(BORDER_SIZE,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,0,DASHES,0);
         borderStoke_noDashes = new BasicStroke(BORDER_SIZE,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND);
 
-        greetingsFont = new Font("Noto Mono",Font.PLAIN,25);
-        gameTitleFont = new Font("Noto Mono",Font.BOLD,40);
-        creditsFont = new Font("Monospaced",Font.PLAIN,10);
+        greetingsFont = new Font("Noto Mono",Font.PLAIN,35);
+        gameTitleFont = new Font("Noto Mono",Font.BOLD,55);
+        creditsFont = new Font("Monospaced",Font.PLAIN,20);
         buttonFont = new Font("Monospaced",Font.PLAIN,startButton.height-2);
 
 

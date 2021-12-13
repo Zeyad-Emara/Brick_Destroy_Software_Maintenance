@@ -21,7 +21,7 @@ import javax.swing.*;
 
 import ball.Ball;
 import brick.Wall;
-import gameFrame.GameBoard;
+import gui.GameBoard;
 
 import java.awt.*;
 import java.awt.event.WindowEvent;
