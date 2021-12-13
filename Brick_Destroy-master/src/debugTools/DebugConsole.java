@@ -15,14 +15,20 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package debugTools;
 
 import javax.swing.*;
+
+import ball.Ball;
+import brick.Wall;
+import gameFrame.GameBoard;
+
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class DebugConsole extends JDialog implements WindowListener{
+public class DebugConsole extends JDialog implements WindowListener
+{
 
     private static final String TITLE = "Debug Console";
 
@@ -33,7 +39,8 @@ public class DebugConsole extends JDialog implements WindowListener{
     private Wall wall;
 
 
-    public DebugConsole(JFrame owner,Wall wall,GameBoard gameBoard){
+    public DebugConsole(JFrame owner,Wall wall,GameBoard gameBoard)
+    {
 
         this.wall = wall;
         this.owner = owner;
@@ -47,7 +54,8 @@ public class DebugConsole extends JDialog implements WindowListener{
         this.pack();
     }
 
-    private void initialize(){
+    private void initialize()
+    {
         this.setModal(true);
         this.setTitle(TITLE);
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -57,7 +65,8 @@ public class DebugConsole extends JDialog implements WindowListener{
     }
 
 
-    private void setLocation(){
+    private void setLocation()
+    {
         int x = ((owner.getWidth() - this.getWidth()) / 2) + owner.getX();
         int y = ((owner.getHeight() - this.getHeight()) / 2) + owner.getY();
         this.setLocation(x,y);
@@ -65,39 +74,46 @@ public class DebugConsole extends JDialog implements WindowListener{
 
 
     @Override
-    public void windowOpened(WindowEvent windowEvent) {
+    public void windowOpened(WindowEvent windowEvent) 
+    {
 
     }
 
     @Override
-    public void windowClosing(WindowEvent windowEvent) {
+    public void windowClosing(WindowEvent windowEvent) 
+    {
         gameBoard.repaint();
     }
 
     @Override
-    public void windowClosed(WindowEvent windowEvent) {
+    public void windowClosed(WindowEvent windowEvent) 
+    {
 
     }
 
     @Override
-    public void windowIconified(WindowEvent windowEvent) {
+    public void windowIconified(WindowEvent windowEvent) 
+    {
 
     }
 
     @Override
-    public void windowDeiconified(WindowEvent windowEvent) {
+    public void windowDeiconified(WindowEvent windowEvent) 
+    {
 
     }
 
     @Override
-    public void windowActivated(WindowEvent windowEvent) {
+    public void windowActivated(WindowEvent windowEvent) 
+    {
         setLocation();
-        Ball b = wall.ball;
+        Ball b = wall.getBall();
         debugPanel.setValues(b.getSpeedX(),b.getSpeedY());
     }
 
     @Override
-    public void windowDeactivated(WindowEvent windowEvent) {
+    public void windowDeactivated(WindowEvent windowEvent) 
+    {
 
     }
 }

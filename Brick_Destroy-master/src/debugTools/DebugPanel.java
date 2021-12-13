@@ -15,16 +15,20 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package debugTools;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
+
+import brick.Wall;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 
 
-public class DebugPanel extends JPanel {
+public class DebugPanel extends JPanel 
+{
 
     private static final Color DEF_BKG = Color.WHITE;
 
@@ -37,7 +41,8 @@ public class DebugPanel extends JPanel {
 
     private Wall wall;
 
-    public DebugPanel(Wall wall){
+    public DebugPanel(Wall wall)
+    {
 
         this.wall = wall;
 
@@ -57,18 +62,21 @@ public class DebugPanel extends JPanel {
 
     }
 
-    private void initialize(){
+    private void initialize()
+    {
         this.setBackground(DEF_BKG);
         this.setLayout(new GridLayout(2,2));
     }
 
-    private JButton makeButton(String title, ActionListener e){
+    private JButton makeButton(String title, ActionListener e)
+    {
         JButton out = new JButton(title);
         out.addActionListener(e);
         return  out;
     }
 
-    private JSlider makeSlider(int min, int max, ChangeListener e){
+    private JSlider makeSlider(int min, int max, ChangeListener e)
+    {
         JSlider out = new JSlider(min,max);
         out.setMajorTickSpacing(1);
         out.setSnapToTicks(true);
@@ -77,7 +85,8 @@ public class DebugPanel extends JPanel {
         return out;
     }
 
-    public void setValues(int x,int y){
+    public void setValues(int x,int y)
+    {
         ballXSpeed.setValue(x);
         ballYSpeed.setValue(y);
     }

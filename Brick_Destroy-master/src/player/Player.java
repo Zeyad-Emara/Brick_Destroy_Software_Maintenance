@@ -15,19 +15,23 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package player;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
+import ball.Ball;
 
-public class Player {
+//Player class is the rectangle shape that we control and we must connect with the ball
+public class Player 
+{
 
-
+	//border color of rectangle
     public static final Color BORDER_COLOR = Color.GREEN.darker().darker();
+    //inner color of rectangle
     public static final Color INNER_COLOR = Color.GREEN;
-
+    //player move rate
     private static final int DEF_MOVE_AMOUNT = 5;
 
     private Rectangle playerFace;
@@ -37,25 +41,33 @@ public class Player {
     private int max;
 
 
-    public Player(Point ballPoint,int width,int height,Rectangle container) {
+    public Player(Point ballPoint,int width,int height,Rectangle container) 
+    {
         this.ballPoint = ballPoint;
         moveAmount = 0;
         playerFace = makeRectangle(width, height);
+        //creating bounds for player movement
         min = container.x + (width / 2);
         max = min + container.width - width;
 
     }
-
-    private Rectangle makeRectangle(int width,int height){
+    
+    //rectangle shape constructor
+    private Rectangle makeRectangle(int width,int height)
+    {
         Point p = new Point((int)(ballPoint.getX() - (width / 2)),(int)ballPoint.getY());
         return  new Rectangle(p,new Dimension(width,height));
     }
 
-    public boolean impact(Ball b){
-        return playerFace.contains(b.getPosition()) && playerFace.contains(b.down) ;
+    //checking if ball contacted rectangle(player)
+    public boolean impact(Ball b)
+    {
+        return playerFace.contains(b.getPosition()) && playerFace.contains(b.getDown()) ;
     }
 
-    public void move(){
+    //allowing player movement if the ball still present inside the gameframe
+    public void move()
+    {
         double x = ballPoint.getX() + moveAmount;
         if(x < min || x > max)
             return;
@@ -63,23 +75,32 @@ public class Player {
         playerFace.setLocation(ballPoint.x - (int)playerFace.getWidth()/2,ballPoint.y);
     }
 
-    public void moveLeft(){
+    //player left movement
+    public void moveLeft()
+    {
         moveAmount = -DEF_MOVE_AMOUNT;
     }
 
-    public void movRight(){
+    //player right movement
+    public void movRight()
+    {
         moveAmount = DEF_MOVE_AMOUNT;
     }
 
-    public void stop(){
+    //player movement stop
+    public void stop()
+    {
         moveAmount = 0;
     }
 
-    public Shape getPlayerFace(){
+    public Shape getPlayerFace()
+    {
         return  playerFace;
     }
 
-    public void moveTo(Point p){
+    //moving the player bar to specific location in the game 
+    public void moveTo(Point p)
+    {
         ballPoint.setLocation(p);
         playerFace.setLocation(ballPoint.x - (int)playerFace.getWidth()/2,ballPoint.y);
     }

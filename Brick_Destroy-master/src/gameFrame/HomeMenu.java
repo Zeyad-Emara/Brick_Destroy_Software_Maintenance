@@ -15,9 +15,10 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package test;
+package gameFrame;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -26,7 +27,8 @@ import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
 
-public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener {
+public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener 
+{
 
     private static final String GREETINGS = "Welcome to:";
     private static final String GAME_TITLE = "Brick Destroy";
@@ -62,7 +64,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private boolean menuClicked;
 
 
-    public HomeMenu(GameFrame owner,Dimension area){
+    public HomeMenu(GameFrame owner,Dimension area)
+    {
 
         this.setFocusable(true);
         this.requestFocusInWindow();
@@ -94,12 +97,14 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     }
 
 
-    public void paint(Graphics g){
+    public void paint(Graphics g)
+    {
         drawMenu((Graphics2D)g);
     }
 
 
-    public void drawMenu(Graphics2D g2d){
+    public void drawMenu(Graphics2D g2d)
+    {
 
         drawContainer(g2d);
 
@@ -126,7 +131,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(prevColor);
     }
 
-    private void drawContainer(Graphics2D g2d){
+    private void drawContainer(Graphics2D g2d)
+    {
         Color prev = g2d.getColor();
 
         g2d.setColor(BG_COLOR);
@@ -147,7 +153,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(prev);
     }
 
-    private void drawText(Graphics2D g2d){
+    private void drawText(Graphics2D g2d)
+    {
 
         g2d.setColor(TEXT_COLOR);
 
@@ -180,7 +187,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
-    private void drawButton(Graphics2D g2d){
+    private void drawButton(Graphics2D g2d)
+    {
 
         FontRenderContext frc = g2d.getFontRenderContext();
 
@@ -203,7 +211,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
 
 
-        if(startClicked){
+        if(startClicked)
+        {
             Color tmp = g2d.getColor();
             g2d.setColor(CLICKED_BUTTON_COLOR);
             g2d.draw(startButton);
@@ -211,7 +220,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
             g2d.drawString(START_TEXT,x,y);
             g2d.setColor(tmp);
         }
-        else{
+        else
+        {
             g2d.draw(startButton);
             g2d.drawString(START_TEXT,x,y);
         }
@@ -232,7 +242,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         x += menuButton.x;
         y += menuButton.y + (startButton.height * 0.9);
 
-        if(menuClicked){
+        if(menuClicked)
+        {
             Color tmp = g2d.getColor();
 
             g2d.setColor(CLICKED_BUTTON_COLOR);
@@ -241,7 +252,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
             g2d.drawString(MENU_TEXT,x,y);
             g2d.setColor(tmp);
         }
-        else{
+        else
+        {
             g2d.draw(menuButton);
             g2d.drawString(MENU_TEXT,x,y);
         }
@@ -249,62 +261,75 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     }
 
     @Override
-    public void mouseClicked(MouseEvent mouseEvent) {
+    public void mouseClicked(MouseEvent mouseEvent) 
+    {
         Point p = mouseEvent.getPoint();
-        if(startButton.contains(p)){
+        if(startButton.contains(p))
+        {
            owner.enableGameBoard();
 
         }
-        else if(menuButton.contains(p)){
+        else if(menuButton.contains(p))
+        {
             System.out.println("Goodbye " + System.getProperty("user.name"));
             System.exit(0);
         }
     }
 
     @Override
-    public void mousePressed(MouseEvent mouseEvent) {
+    public void mousePressed(MouseEvent mouseEvent) 
+    {
         Point p = mouseEvent.getPoint();
-        if(startButton.contains(p)){
+        if(startButton.contains(p))
+        {
             startClicked = true;
             repaint(startButton.x,startButton.y,startButton.width+1,startButton.height+1);
 
         }
-        else if(menuButton.contains(p)){
+        else if(menuButton.contains(p))
+        {
             menuClicked = true;
             repaint(menuButton.x,menuButton.y,menuButton.width+1,menuButton.height+1);
         }
     }
 
     @Override
-    public void mouseReleased(MouseEvent mouseEvent) {
-        if(startClicked ){
+    public void mouseReleased(MouseEvent mouseEvent) 
+    {
+        if(startClicked )
+        {
             startClicked = false;
             repaint(startButton.x,startButton.y,startButton.width+1,startButton.height+1);
         }
-        else if(menuClicked){
+        else if(menuClicked)
+        {
             menuClicked = false;
             repaint(menuButton.x,menuButton.y,menuButton.width+1,menuButton.height+1);
         }
     }
 
     @Override
-    public void mouseEntered(MouseEvent mouseEvent) {
+    public void mouseEntered(MouseEvent mouseEvent)
+    {
 
     }
 
     @Override
-    public void mouseExited(MouseEvent mouseEvent) {
+    public void mouseExited(MouseEvent mouseEvent) 
+    {
 
     }
 
 
     @Override
-    public void mouseDragged(MouseEvent mouseEvent) {
+    public void mouseDragged(MouseEvent mouseEvent) 
+    {
 
     }
 
     @Override
-    public void mouseMoved(MouseEvent mouseEvent) {
+    public void mouseMoved(MouseEvent mouseEvent) 
+    {
         Point p = mouseEvent.getPoint();
         if(startButton.contains(p) || menuButton.contains(p))
             this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
