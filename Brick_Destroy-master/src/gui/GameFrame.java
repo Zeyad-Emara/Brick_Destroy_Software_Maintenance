@@ -20,10 +20,9 @@ package gui;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
-import java.awt.event.WindowListener;
+
 
 
 public class GameFrame extends JFrame implements WindowFocusListener 
