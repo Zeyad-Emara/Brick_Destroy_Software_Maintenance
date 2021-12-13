@@ -190,7 +190,6 @@ abstract public class Brick
 
     private static Random rnd;
 
-    private String name;
     Shape brickFace;
 
     private Color border;
@@ -206,7 +205,6 @@ abstract public class Brick
     {
         rnd = new Random();
         broken = false;
-        this.name = name;
         brickFace = makeBrickFace(pos,size);
         this.border = border;
         this.inner = inner;
