@@ -35,8 +35,6 @@ public class Crack
 
     }
 
-
-
     public GeneralPath draw()
     {
 

@@ -20,6 +20,7 @@ package debugTools;
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
 
+import brick.LevelGenerator;
 import brick.Wall;
 
 import java.awt.*;
@@ -40,15 +41,16 @@ public class DebugPanel extends JPanel
     private JSlider ballYSpeed;
 
     
+    private LevelGenerator level;
 
-    public DebugPanel(Wall wall)
+    public DebugPanel(Wall wall, LevelGenerator level)
     {
 
         
 
         initialize();
 
-        skipLevel = makeButton("Skip Level",e -> wall.nextLevel());
+        skipLevel = makeButton("Skip Level",e -> level.nextLevel());
         resetBalls = makeButton("Reset Balls",e -> wall.resetBallCount());
 
         ballXSpeed = makeSlider(-4,4,e -> wall.setBallXSpeed(ballXSpeed.getValue()));

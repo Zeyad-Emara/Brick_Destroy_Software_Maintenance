@@ -20,6 +20,7 @@ package debugTools;
 import javax.swing.*;
 
 import ball.Ball;
+import brick.LevelGenerator;
 import brick.Wall;
 import gui.GameBoard;
 
@@ -37,17 +38,18 @@ public class DebugConsole extends JDialog implements WindowListener
     private DebugPanel debugPanel;
     private GameBoard gameBoard;
     private Wall wall;
+    private LevelGenerator level;
 
 
-    public DebugConsole(JFrame owner,Wall wall,GameBoard gameBoard)
+    public DebugConsole(JFrame owner,Wall wall,LevelGenerator level,GameBoard gameBoard)
     {
-
+    	this.level = level;
         this.wall = wall;
         this.owner = owner;
         this.gameBoard = gameBoard;
         initialize();
 
-        debugPanel = new DebugPanel(wall);
+        debugPanel = new DebugPanel(wall,level);
         this.add(debugPanel,BorderLayout.CENTER);
 
 
