@@ -31,6 +31,8 @@ random inbounds in middle jumps methods were also removed from Crack class as th
 
 -Made Class Diagram.
 
+-Used a staging branch to first refactor the game then merge with master branch for game extension.
+
 # Extension and Additions 
 
 -Increased menu font size and main menu background color.
