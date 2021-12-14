@@ -14,7 +14,7 @@ D move right the player
 ESC enter/exit pause menu
 ALT+SHIFT+F1 open console
 
-#Game Maintenance
+# Game Maintenance
 
 -Separate the classes into 6 meaningful packages depending on each class's function and its relation with other classes.
 -Extracted the Crack subclass from the Brick class and made it an independant class to fulfill single responsibility principle.
@@ -25,7 +25,7 @@ random inbounds in middle jumps methods were also removed from Crack class as th
 -Added Javadocs documentation.
 -Made Class Diagram.
 
-#Extension and Additions 
+# Extension and Additions 
 
 -Increased menu font size and main menu background color.
 -Increased ball speed and made it constant (not random) to make the game more action packed and fast paced.
