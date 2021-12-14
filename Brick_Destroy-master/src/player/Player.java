@@ -30,7 +30,7 @@ public class Player
     //inner color of rectangle
     public static final Color INNER_COLOR = Color.GREEN;
     //player move rate
-    private static final int DEF_MOVE_AMOUNT = 5;
+    private static final int DEF_MOVE_AMOUNT = 7;
 
     private Rectangle playerFace;
     private Point ballPoint;
