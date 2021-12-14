@@ -37,6 +37,7 @@ public class Wall
     private Brick[] bricks;
     private Ball ball;
     private Player player;
+    private int score =0;
 
     private Brick[][] levels;
     private int level;
@@ -123,17 +124,21 @@ public class Wall
             {
                 //Vertical Impact
                 case Brick.UP_IMPACT:
+                	score += 1;
                     ball.reverseY();
                     return b.setImpact(ball.getDown(), Crack.UP);
                 case Brick.DOWN_IMPACT:
+                	score +=1;
                     ball.reverseY();
                     return b.setImpact(ball.getUp(),Crack.DOWN);
 
                 //Horizontal Impact
                 case Brick.LEFT_IMPACT:
+                	score +=1;
                     ball.reverseX();
                     return b.setImpact(ball.getRight(),Crack.RIGHT);
                 case Brick.RIGHT_IMPACT:
+                	score +=1;
                     ball.reverseX();
                     return b.setImpact(ball.getLeft(),Crack.LEFT);
             }
@@ -248,6 +253,15 @@ public class Wall
     public void setBrickCount(int brickCount)
     {
         this.brickCount = brickCount;
+    }
+    
+    public int getScore()
+    {
+    	return score;
+    }
+    public void setScore(int x)
+    {
+    	score=x;
     }
 
 }

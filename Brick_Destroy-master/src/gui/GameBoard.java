@@ -30,7 +30,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener 
 {
@@ -53,6 +56,8 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private Wall wall;
 
     private String message;
+    
+    private String scoreString = "";
 
     private boolean showPauseMenu;
 
@@ -97,7 +102,22 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 if(wall.ballEnd())
                 {
                     wall.wallReset();
-                    message = "Game over";
+                    message = String.format("Your Score : %d",wall.getScore());
+                
+                    try
+                    {
+                        scoreString = "\n" + wall.getScore();
+                        FileWriter fw=new FileWriter("Brick_Destroy-master\\Score\\scoreList.txt",true);
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        bw.write(scoreString);
+                        bw.close();
+                    }
+                    catch(Exception xyz)
+                    {
+                    	System.out.println(xyz);
+                    }
+                    System.out.println("Score saved Successfuly");
+                    wall.setScore(0);
                 }
                 wall.ballReset();
                 gameTimer.stop();
