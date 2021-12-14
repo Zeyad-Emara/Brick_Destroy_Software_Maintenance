@@ -1,25 +1,28 @@
 package brick;
 
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.Shape;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
-public class DiamondBrick extends Brick
+public class ObsidianBrick extends Brick
 {
 
 	private static final String NAME = "Diamond Brick";
-    private static final Color DEF_INNER = new Color(185, 242, 255);
-    private static final Color DEF_BORDER = Color.CYAN;
-    private static final int Diamond_STRENGTH = 3;
-    private static final double Diamond_PROBABILITY = 0.3;
+    private static final Color DEF_INNER = new Color(48, 25, 52);
+    private static final Color DEF_BORDER = Color.BLACK;
+    private static final int Obsidian_STRENGTH = 5;
+    private static final double Obsidian_PROBABILITY = 0.3;
 
     private Random rnd;
     private Shape brickFace;
     
-    public DiamondBrick(Point point, Dimension size)
+    public ObsidianBrick(Point point, Dimension size)
     {
-    	super(NAME,point,size,DEF_BORDER,DEF_INNER,Diamond_STRENGTH);
+    	super(NAME,point,size,DEF_BORDER,DEF_INNER,Obsidian_STRENGTH);
         rnd = new Random();
         brickFace = super.brickFace;
     }
@@ -46,7 +49,7 @@ public class DiamondBrick extends Brick
 
     public void impact()
     {
-        if(rnd.nextDouble() < Diamond_PROBABILITY)
+        if(rnd.nextDouble() < Obsidian_PROBABILITY)
         {
             super.impact();
         }
@@ -54,3 +57,6 @@ public class DiamondBrick extends Brick
 
     
 }
+
+
+

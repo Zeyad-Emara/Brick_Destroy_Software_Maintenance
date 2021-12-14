@@ -6,11 +6,12 @@ import java.awt.Rectangle;
 
 public class LevelGenerator 
 {
-	private static final int LEVELS_COUNT = 5;
+	private static final int LEVELS_COUNT = 8;
 	private static final int CLAY = 1;
     private static final int STEEL = 2;
     private static final int CEMENT = 3;
     private static final int DIAMOND = 4;
+    private static final int OBSIDIAN = 5;
     
     private Wall wall;
     private Brick[][] levels;
@@ -123,7 +124,11 @@ public class LevelGenerator
         tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,CEMENT);
         tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,STEEL);
         tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,CEMENT);
-        tmp[4] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,DIAMOND,STEEL);
+        tmp[4] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,DIAMOND,CEMENT);
+        tmp[5] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,DIAMOND,STEEL);
+        tmp[6] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,OBSIDIAN,STEEL);
+        tmp[7] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,OBSIDIAN,DIAMOND);
+        
         return tmp;
     }
     
@@ -142,6 +147,9 @@ public class LevelGenerator
                 break;
             case DIAMOND:
             	out = new DiamondBrick(point, size);
+            	break;
+            case OBSIDIAN:
+            	out = new ObsidianBrick(point, size);
             	break;
             default:
                 throw  new IllegalArgumentException(String.format("Unknown Type:%d\n",type));
