@@ -20,9 +20,9 @@ package debugTools;
 import javax.swing.*;
 
 import ball.Ball;
-import brick.LevelGenerator;
-import brick.Wall;
 import gui.GameBoard;
+import level.LevelGenerator;
+import level.Wall;
 
 import java.awt.*;
 import java.awt.event.WindowEvent;

@@ -15,7 +15,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package brick;
+package level;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -23,6 +23,8 @@ import java.awt.geom.Point2D;
 
 import ball.Ball;
 import ball.RubberBall;
+import brick.Brick;
+import brick.Crack;
 import player.Player;
 
 /**

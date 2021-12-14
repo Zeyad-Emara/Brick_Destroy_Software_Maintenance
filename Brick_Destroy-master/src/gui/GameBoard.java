@@ -21,9 +21,9 @@ import javax.swing.*;
 
 import ball.Ball;
 import brick.Brick;
-import brick.LevelGenerator;
-import brick.Wall;
 import debugTools.DebugConsole;
+import level.LevelGenerator;
+import level.Wall;
 import player.Player;
 
 import java.awt.*;

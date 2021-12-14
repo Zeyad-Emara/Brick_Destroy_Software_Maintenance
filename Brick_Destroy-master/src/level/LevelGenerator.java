@@ -1,8 +1,15 @@
-package brick;
+package level;
 
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
+
+import brick.Brick;
+import brick.CementBrick;
+import brick.ClayBrick;
+import brick.DiamondBrick;
+import brick.ObsidianBrick;
+import brick.SteelBrick;
 /**
  * 
  * LevelGenerator class is responsible for the level layout and providing the brick layout for each level and moving from level to next

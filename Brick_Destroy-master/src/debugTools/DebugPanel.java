@@ -20,8 +20,8 @@ package debugTools;
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
 
-import brick.LevelGenerator;
-import brick.Wall;
+import level.LevelGenerator;
+import level.Wall;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
