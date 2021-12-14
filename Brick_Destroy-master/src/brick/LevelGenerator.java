@@ -3,7 +3,11 @@ package brick;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
-
+/**
+ * 
+ * LevelGenerator class is responsible for the level layout and providing the brick layout for each level and moving from level to next
+ *
+ */
 public class LevelGenerator 
 {
 	private static final int LEVELS_COUNT = 8;
@@ -17,7 +21,14 @@ public class LevelGenerator
     private Brick[][] levels;
     private int level;
     
-    
+    /**
+     * Level initialization
+     * @param drawArea
+     * @param brickCount
+     * @param lineCount
+     * @param brickDimensionRatio
+     * @param wall
+     */
     public LevelGenerator(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Wall wall)
     {
     	
@@ -25,7 +36,15 @@ public class LevelGenerator
         level = 0;
         this.wall = wall;
     }
-    
+    /**
+     * Method that takes in the blueprint for a level that has one brick and generates it
+     * @param drawArea
+     * @param brickCnt
+     * @param lineCnt
+     * @param brickSizeRatio
+     * @param type
+     * @return
+     */
     private Brick[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type)
     {
         /*
@@ -68,7 +87,16 @@ public class LevelGenerator
         return tmp;
 
     }
-
+    /**
+     * Method that places the bricks in a certain chess board pattern 
+     * @param drawArea
+     * @param brickCnt
+     * @param lineCnt
+     * @param brickSizeRatio
+     * @param typeA
+     * @param typeB
+     * @return
+     */
     private Brick[] makeChessboardLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int typeA, int typeB)
     {
         /*
@@ -116,7 +144,14 @@ public class LevelGenerator
         }
         return tmp;
     }
-    
+    /**
+     * defining the type of bricks composing each level
+     * @param drawArea
+     * @param brickCount
+     * @param lineCount
+     * @param brickDimensionRatio
+     * @return
+     */
     private Brick[][] makeLevels(Rectangle drawArea,int brickCount,int lineCount,double brickDimensionRatio)
     {
         Brick[][] tmp = new Brick[LEVELS_COUNT][];
@@ -131,7 +166,13 @@ public class LevelGenerator
         
         return tmp;
     }
-    
+    /**
+     * determining brick type to create
+     * @param point
+     * @param size
+     * @param type
+     * @return
+     */
     private Brick makeBrick(Point point, Dimension size, int type)
     {
         Brick out;
@@ -156,7 +197,9 @@ public class LevelGenerator
         }
         return  out;
     }
-    
+    /**
+     * iterating through level
+     */
     public void nextLevel()
     {
         wall.setBricks(levels[level++]);

@@ -24,7 +24,11 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 
 
-
+/**
+ * 
+ * GameFrame class is responsible for the game menu graphics and uesr interaction 
+ *
+ */
 public class GameFrame extends JFrame implements WindowFocusListener 
 {
 
@@ -34,7 +38,9 @@ public class GameFrame extends JFrame implements WindowFocusListener
     private HomeMenu homeMenu;
 
     private boolean gaming;
-
+    /**
+     * creating the game menu
+     */
     public GameFrame()
     {
         super();
@@ -62,7 +68,9 @@ public class GameFrame extends JFrame implements WindowFocusListener
         this.autoLocate();
         this.setVisible(true);
     }
-
+    /**
+     * Transfer from viewing menu to viewing game interface
+     */
     public void enableGameBoard()
     {
         this.dispose();

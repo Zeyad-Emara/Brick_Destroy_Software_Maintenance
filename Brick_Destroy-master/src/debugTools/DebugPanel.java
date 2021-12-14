@@ -27,7 +27,11 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 
-
+/**
+ * 
+ * DebugPanel class which creates the debug interface and contains its dimensions and contents
+ *
+ */
 public class DebugPanel extends JPanel 
 {
 
@@ -42,7 +46,11 @@ public class DebugPanel extends JPanel
 
     
    
-
+    /**
+     * Modifying level and ball speed 
+     * @param wall
+     * @param level
+     */
     public DebugPanel(Wall wall, LevelGenerator level)
     {
 
@@ -69,14 +77,25 @@ public class DebugPanel extends JPanel
         this.setBackground(DEF_BKG);
         this.setLayout(new GridLayout(2,2));
     }
-
+    /**
+     * creating buttons
+     * @param title
+     * @param e
+     * @return
+     */
     private JButton makeButton(String title, ActionListener e)
     {
         JButton out = new JButton(title);
         out.addActionListener(e);
         return  out;
     }
-
+    /**
+     * creating sliders
+     * @param min
+     * @param max
+     * @param e
+     * @return
+     */
     private JSlider makeSlider(int min, int max, ChangeListener e)
     {
         JSlider out = new JSlider(min,max);
@@ -86,7 +105,11 @@ public class DebugPanel extends JPanel
         out.addChangeListener(e);
         return out;
     }
-
+    /**
+     * sliders set ball speed
+     * @param x
+     * @param y
+     */
     public void setValues(int x,int y)
     {
         ballXSpeed.setValue(x);

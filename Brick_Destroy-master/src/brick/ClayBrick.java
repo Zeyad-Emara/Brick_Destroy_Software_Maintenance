@@ -6,7 +6,8 @@ import java.awt.Point;
 
 
 /**
- * Created by filippo on 04/09/16.
+ * 
+ * clay brick is a child of brick class 
  *
  */
 public class ClayBrick extends Brick 
@@ -21,7 +22,11 @@ public class ClayBrick extends Brick
 
 
 
-
+    /**
+     * Method to draw brick with clay characteristics 
+     * @param point
+     * @param size
+     */
     public ClayBrick(Point point, Dimension size)
     {
         super(NAME,point,size,DEF_BORDER,DEF_INNER,CLAY_STRENGTH);

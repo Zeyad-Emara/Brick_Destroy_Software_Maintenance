@@ -19,7 +19,11 @@ package gui;
 
 import java.awt.*;
 
-
+/**
+ * 
+ * GraphicsMain class is the main code driver as it contains the main method
+ *
+ */
 public class GraphicsMain 
 {
 

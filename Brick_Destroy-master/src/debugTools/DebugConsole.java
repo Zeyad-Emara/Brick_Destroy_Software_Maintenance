@@ -27,7 +27,11 @@ import gui.GameBoard;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-
+/**
+ * 
+ * DebugConsol class responsible for processing user interaction with debug menu
+ *
+ */
 public class DebugConsole extends JDialog implements WindowListener
 {
 
@@ -40,7 +44,13 @@ public class DebugConsole extends JDialog implements WindowListener
     private Wall wall;
     private LevelGenerator level;
 
-
+    /**
+     * Creating debug menu interface
+     * @param owner
+     * @param wall
+     * @param level
+     * @param gameBoard
+     */
     public DebugConsole(JFrame owner,Wall wall,LevelGenerator level,GameBoard gameBoard)
     {
     	this.level = level;
@@ -55,7 +65,9 @@ public class DebugConsole extends JDialog implements WindowListener
 
         this.pack();
     }
-
+    /**
+     * Initializing debug menu interface
+     */
     private void initialize()
     {
         this.setModal(true);

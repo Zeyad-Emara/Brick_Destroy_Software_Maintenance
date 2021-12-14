@@ -22,6 +22,11 @@ import java.awt.*;
 import ball.Ball;
 
 //Player class is the rectangle shape that we control and we must connect with the ball
+/**
+ * 
+ * Player class which creates the player object and manages its characteristics 
+ *
+ */
 public class Player 
 {
 
@@ -38,7 +43,13 @@ public class Player
     private int min;
     private int max;
 
-
+    /**
+     * Method to center player in bottom middle of screen
+     * @param ballPoint
+     * @param width
+     * @param height
+     * @param container
+     */
     public Player(Point ballPoint,int width,int height,Rectangle container) 
     {
         this.ballPoint = ballPoint;
@@ -51,6 +62,12 @@ public class Player
     }
     
     //rectangle shape constructor
+    /**
+     * rectangle shape constructor
+     * @param width
+     * @param height
+     * @return
+     */
     private Rectangle makeRectangle(int width,int height)
     {
         Point p = new Point((int)(ballPoint.getX() - (width / 2)),(int)ballPoint.getY());
@@ -58,12 +75,20 @@ public class Player
     }
 
     //checking if ball contacted rectangle(player)
+    /**
+     * checking if ball impacted player model
+     * @param b
+     * @return
+     */
     public boolean impact(Ball b)
     {
         return playerFace.contains(b.getPosition()) && playerFace.contains(b.getDown()) ;
     }
 
     //allowing player movement if the ball still present inside the gameframe
+    /**
+     * defining the limits of player movements and allowing movement if ball still exists
+     */
     public void move()
     {
         double x = ballPoint.getX() + moveAmount;

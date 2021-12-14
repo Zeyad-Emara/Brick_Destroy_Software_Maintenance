@@ -21,7 +21,11 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
-
+/**
+ * 
+ * SteelBrick class is a child of Brick class
+ *
+ */
 public class SteelBrick extends Brick 
 {
 
@@ -33,7 +37,11 @@ public class SteelBrick extends Brick
 
     private Random rnd;
     private Shape brickFace;
-
+    /**
+     * Method to draw brick with steel characteristics
+     * @param point
+     * @param size
+     */
     public SteelBrick(Point point, Dimension size)
     {
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
@@ -61,7 +69,9 @@ public class SteelBrick extends Brick
         impact();
         return  super.isBroken();
     }
-
+    /**
+     * method to randomly weaken brick by hitting it
+     */
     public void impact()
     {
         if(rnd.nextDouble() < STEEL_PROBABILITY)

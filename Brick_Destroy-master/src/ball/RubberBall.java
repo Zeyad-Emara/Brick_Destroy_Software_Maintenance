@@ -21,16 +21,33 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 
-
+/**
+ * 
+ *child class of ball which contains the information about the ball's color and size
+ *
+ */
 public class RubberBall extends Ball 
 {
 
 	//setting ball characteristics
+	/**
+	 * ball radius
+	 */
     private static final int DEF_RADIUS = 10;
+    /**
+     * ball inner color
+     */
     private static final Color DEF_INNER_COLOR = new Color(255, 219, 88);
+    /**
+     * ball ouline color
+     */
     private static final Color DEF_BORDER_COLOR = DEF_INNER_COLOR.darker().darker();
 
 
+    /**
+     * positioning the ball
+     * @param center
+     */
     public RubberBall(Point2D center)
     {
         super(center,DEF_RADIUS,DEF_RADIUS,DEF_INNER_COLOR,DEF_BORDER_COLOR);

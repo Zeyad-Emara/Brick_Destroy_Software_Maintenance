@@ -5,7 +5,9 @@ import java.awt.Rectangle;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
-
+/**
+ * Crack class which manages drawing the cracks on the brick and the direction of the crack based on ball impact
+ */
 public class Crack
 {
 
@@ -25,7 +27,11 @@ public class Crack
     
 
     private static Random rnd;
-    
+    /**
+     * crack constructor
+     * @param crackDepth
+     * @param steps
+     */
     public Crack(int crackDepth, int steps)
     {
     	rnd = new Random();
@@ -40,12 +46,19 @@ public class Crack
 
         return crack;
     }
-
+    /**
+     * clearing cracks from brick
+     */
     public void reset()
     {
         crack.reset();
     }
-
+    /**
+     * Creating crack at the point of ball impact with brick
+     * @param point
+     * @param direction
+     * @param bounds
+     */
     protected void makeCrack(Point2D point, int direction, Rectangle bounds)
     {
     	

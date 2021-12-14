@@ -25,7 +25,11 @@ import ball.Ball;
 import ball.RubberBall;
 import player.Player;
 
-
+/**
+ * 
+ * Wall class which manages gameplay parts concerning the ball/brick interactions and their behaviors
+ *
+ */
 public class Wall 
 {
 
@@ -51,6 +55,11 @@ public class Wall
     private int speedX;
     private int speedY;
 
+    /**
+     * Wal constructor
+     * @param drawArea
+     * @param ballPos
+     */
     public Wall(Rectangle drawArea, Point ballPos)
     {
     	
@@ -76,19 +85,27 @@ public class Wall
 
     }
 
-
+    /**
+     * spawning ball
+     * @param ballPos
+     */
     private void makeBall(Point2D ballPos)
     {
         ball = new RubberBall(ballPos);
     }
 
-
+    /**
+     * moving ball and player
+     */
     public void move()
     {
         player.move();
         ball.move();
     }
-
+    
+    /**
+     * look for all impacts (with bricks screen edges or player model) 
+     */
     public void findImpacts()
     {
         if(player.impact(ball))
@@ -116,7 +133,10 @@ public class Wall
             ballLost = true;
         }
     }
-
+    /**
+     * Ball impact with a brick and reversing the ball direction depending on direction of impact 
+     * @return
+     */
     private boolean impactWall()
     {
         for(Brick b : bricks){
@@ -151,22 +171,33 @@ public class Wall
         Point2D p = ball.getPosition();
         return ((p.getX() < area.getX()) ||(p.getX() > (area.getX() + area.getWidth())));
     }
-
+    /**
+     * Brick count getter method
+     * @return
+     */
     public int getBrickCount()
     {
         return brickCount;
     }
-
+    /**
+     * Ball count getter method
+     * @return
+     */
     public int getBallCount()
     {
         return ballCount;
     }
-
+    /**
+     * determining is ball is lost
+     * @return
+     */
     public boolean isBallLost()
     {
         return ballLost;
     }
-
+    /**
+     * reseting ball to center and setting speed to zero
+     */
     public void ballReset()
     {
         player.moveTo(startPoint);
@@ -174,7 +205,9 @@ public class Wall
         ball.setSpeed(speedX,speedY);
         ballLost = false;
     }
-
+    /**
+     * reseting wall
+     */
     public void wallReset()
     {
         for(Brick b : bricks)
@@ -182,17 +215,25 @@ public class Wall
         brickCount = bricks.length;
         ballCount = 3;
     }
-
+    /**
+     * Determining when player is out of balls
+     * @return
+     */
     public boolean ballEnd()
     {
         return ballCount == 0;
     }
-
+    /**
+     * Checking is player destroyed all bricks
+     * @return
+     */
     public boolean isDone()
     {
         return brickCount == 0;
     }
-
+    /**
+     * Initiating next level
+     */
     public void nextLevel()
     {
         bricks = levels[level++];
@@ -203,62 +244,98 @@ public class Wall
     {
         return level < levels.length;
     }
-
+    /**
+     * Ball x speed setter method
+     * @param s
+     */
     public void setBallXSpeed(int s)
     {
         ball.setXSpeed(s);
     }
-
+    /**
+     * Ball y speed setter method
+     * @param s
+     */
     public void setBallYSpeed(int s)
     {
         ball.setYSpeed(s);
     }
-
+    /**
+     * reseting ball count(lives) to 3
+     */
     public void resetBallCount()
     {
         ballCount = 3;
     }
 
-    
+    /**
+     * birck getter method
+     * @return
+     */
     public Brick[] getBricks() 
     {
         return bricks;
     }
-
+    /**
+     * Brick setter method
+     * @param bricks
+     */
     public void setBricks(Brick[] bricks) 
     {
         this.bricks = bricks;
     }
-
+    /**
+     * ball getter method
+     * @return
+     */
     public Ball getBall() 
     {
         return ball;
     }
-
+    /**
+     * ball setter method
+     * @param ball
+     */
     public void setBall(Ball ball) 
     {
         this.ball = ball;
     }
-
+    /**
+     * player getter method
+     * @return
+     */
     public Player getPlayer() 
     {
         return player;
     }
-
+    /**
+     * player setter method
+     * @param player
+     */
     public void setPlayer(Player player) 
     {
         this.player = player;
     }
-
+    /**
+     * Brick count setter method
+     * @param brickCount
+     */
     public void setBrickCount(int brickCount)
     {
         this.brickCount = brickCount;
     }
-    
+    /**
+     * score getter method
+     * @return
+     */
     public int getScore()
     {
     	return score;
     }
+    /**
+     * score setter method
+     * @param x
+     */
     public void setScore(int x)
     {
     	score=x;

@@ -32,9 +32,12 @@ import java.awt.font.FontRenderContext;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
+/**
+ * 
+ * GameBoard class is responsible for drawing the game environment and managing user interaction with it
+ *
+ */
 public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener 
 {
 
@@ -71,7 +74,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private DebugConsole debugConsole;
 
     private LevelGenerator level;
-
+    /**
+     * game board constructor and controls game logic
+     * @param owner
+     */
     public GameBoard(JFrame owner)
     {
         super();
@@ -156,7 +162,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         this.addMouseMotionListener(this);
     }
 
-
+    /**
+     * draw and color the game environment
+     */
     public void paint(Graphics g)
     {
 
@@ -180,7 +188,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         Toolkit.getDefaultToolkit().sync();
     }
-
+    /**
+     * clear screen
+     * @param g2d
+     */
     private void clear(Graphics2D g2d)
     {
         Color tmp = g2d.getColor();
@@ -188,7 +199,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.fillRect(0,0,getWidth(),getHeight());
         g2d.setColor(tmp);
     }
-
+    /**
+     * drawing bricks in game environment
+     * @param brick
+     * @param g2d
+     */
     private void drawBrick(Brick brick,Graphics2D g2d)
     {
         Color tmp = g2d.getColor();
@@ -202,7 +217,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         g2d.setColor(tmp);
     }
-
+    /**
+     * drawing ball in game environment
+     * @param ball
+     * @param g2d
+     */
     private void drawBall(Ball ball,Graphics2D g2d)
     {
         Color tmp = g2d.getColor();
@@ -217,7 +236,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         g2d.setColor(tmp);
     }
-
+    /**
+     * drawing player model in game environment
+     * @param p
+     * @param g2d
+     */
     private void drawPlayer(Player p,Graphics2D g2d)
     {
         Color tmp = g2d.getColor();
@@ -253,7 +276,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setComposite(tmp);
         g2d.setColor(tmpColor);
     }
-
+    /**
+     * drawing pause menu and managing buttons
+     * @param g2d
+     */
     private void drawPauseMenu(Graphics2D g2d)
     {
         Font tmpFont = g2d.getFont();
@@ -320,6 +346,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     }
 
     @Override
+    /**
+     * game responding to keys pressed by the player
+     */
     public void keyPressed(KeyEvent keyEvent) 
     {
         switch(keyEvent.getKeyCode())
@@ -357,6 +386,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     }
 
     @Override
+    /**
+     * Managing player clicking on different buttons in game environment 
+     */
     public void mouseClicked(MouseEvent mouseEvent) 
     {
         Point p = mouseEvent.getPoint();
@@ -413,6 +445,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     }
 
     @Override
+    /**
+     * changing mouse cursor when hovering over button
+     */
     public void mouseMoved(MouseEvent mouseEvent) 
     {
         Point p = mouseEvent.getPoint();

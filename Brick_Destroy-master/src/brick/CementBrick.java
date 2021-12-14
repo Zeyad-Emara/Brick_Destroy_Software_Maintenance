@@ -4,7 +4,11 @@ import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 
-
+/**
+ * 
+ * 
+ *Cement brick is a child of brick class 
+ */
 public class CementBrick extends Brick 
 {
 
@@ -17,7 +21,11 @@ public class CementBrick extends Brick
     private Crack crack;
     private Shape brickFace;
 
-
+    /**
+     * Method to draw brick with Cement characteristics 
+     * @param point
+     * @param size
+     */
     public CementBrick(Point point, Dimension size)
     {
         super(NAME,point,size,DEF_BORDER,DEF_INNER,CEMENT_STRENGTH);
@@ -30,7 +38,9 @@ public class CementBrick extends Brick
     {
         return new Rectangle(pos,size);
     }
-
+    /**
+     * method to determine if should draw crack
+     */
     @Override
     public boolean setImpact(Point2D point, int dir) 
     {
@@ -51,7 +61,9 @@ public class CementBrick extends Brick
     {
         return brickFace;
     }
-
+    /**
+     * Method drawing crack on cement brick
+     */
     private void updateBrick()
     {
         if(!super.isBroken())
@@ -61,7 +73,9 @@ public class CementBrick extends Brick
             brickFace = gp;
         }
     }
-
+    /**
+     * resetting bricks to full health
+     */
     public void repair()
     {
         super.repair();

@@ -26,7 +26,11 @@ import java.awt.event.MouseMotionListener;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
-
+/**
+ * 
+ * HomeMenu Class responsible for managing the menu interface and the player interaction with buttons and game environment in a graphical sense
+ *
+ */
 public class HomeMenu extends JComponent implements MouseListener, MouseMotionListener 
 {
 
@@ -63,7 +67,11 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private boolean startClicked;
     private boolean menuClicked;
 
-
+    /**
+     * Menu constructor
+     * @param owner
+     * @param area
+     */
     public HomeMenu(GameFrame owner,Dimension area)
     {
 
@@ -102,7 +110,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         drawMenu((Graphics2D)g);
     }
 
-
+    /**
+     * Menu drawing according to previously declared parameters
+     * @param g2d
+     */
     public void drawMenu(Graphics2D g2d)
     {
 
@@ -130,7 +141,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setFont(prevFont);
         g2d.setColor(prevColor);
     }
-
+    /**
+     * drawing border for menu
+     * @param g2d
+     */
     private void drawContainer(Graphics2D g2d)
     {
         Color prev = g2d.getColor();
@@ -153,6 +167,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(prev);
     }
 
+    /**
+     * drawing on screen text
+     * @param g2d
+     */
     private void drawText(Graphics2D g2d)
     {
 
@@ -186,7 +204,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
 
     }
-
+    /**
+     * drawing buttons and managing their properties and what they do when clicked
+     * @param g2d
+     */
     private void drawButton(Graphics2D g2d)
     {
 
