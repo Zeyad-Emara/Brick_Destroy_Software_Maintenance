@@ -46,6 +46,9 @@ public class Wall
     private int brickCount;
     private int ballCount;
     private boolean ballLost;
+    
+    private int speedX;
+    private int speedY;
 
     public Wall(Rectangle drawArea, Point ballPos)
     {
@@ -54,17 +57,14 @@ public class Wall
 
         ballCount = 3;
         ballLost = false;
-
-        rnd = new Random();
+       
+        
+        speedX = 4;
+        speedY = -4;
+        
 
         makeBall(ballPos);
-        int speedX,speedY;
-        do{
-            speedX = rnd.nextInt(5) - 2;
-        }while(speedX == 0);
-        do{
-            speedY = -rnd.nextInt(3);
-        }while(speedY == 0);
+        
 
         ball.setSpeed(speedX,speedY);
 
@@ -166,14 +166,6 @@ public class Wall
     {
         player.moveTo(startPoint);
         ball.moveTo(startPoint);
-        int speedX,speedY;
-        do{
-            speedX = rnd.nextInt(5) - 2;
-        }while(speedX == 0);
-        do{
-            speedY = -rnd.nextInt(3);
-        }while(speedY == 0);
-
         ball.setSpeed(speedX,speedY);
         ballLost = false;
     }
