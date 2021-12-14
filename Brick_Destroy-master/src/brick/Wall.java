@@ -19,7 +19,7 @@ package brick;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.Random;
+
 
 import ball.Ball;
 import ball.RubberBall;
@@ -31,7 +31,7 @@ public class Wall
 
    
 
-    private Random rnd;
+    
     private Rectangle area;
 
     private Brick[] bricks;

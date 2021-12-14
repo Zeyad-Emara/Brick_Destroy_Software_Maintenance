@@ -41,7 +41,7 @@ public class DebugPanel extends JPanel
     private JSlider ballYSpeed;
 
     
-    private LevelGenerator level;
+   
 
     public DebugPanel(Wall wall, LevelGenerator level)
     {
